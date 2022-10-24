@@ -1,5 +1,8 @@
 import turtle
-sc = turtle.Screen()
-sc.title("Pong game")
-sc.bgcolor("white")
-sc.setup(width=1000, height=600)
+window = turtle.Screen()
+
+geoff = turtle.Turtle()
+geoff.forward(100)
+
+window.exitonclick()
+turtle.mainloop()
