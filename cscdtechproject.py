@@ -29,7 +29,7 @@ pong_ball.dx = 5
 pong_ball.dy = -5
 pong_ball.penup()
 pong_ball.goto(0, 0)
-#pong_ball.shapesize(stretch_wid=3, stretch_len=3)
+#pong_ball.shapesize(stretch_wid=3, stretch_len=3), unnecessary
 
 player_one = 0
 player_two = 0
@@ -43,26 +43,29 @@ sketch.goto(0, 260)
 sketch.write("player_one : 0    player_two : 0",
             align="center", font=("arial", 24, "normal"))
 
+#started creating the paddles here
+#Paddle positioning
 def paddleaup():
     y = paddle_a.ycor
-    y += 20
+    y -= 20
     paddle_a.sety(y)
 
 def paddleadown():
     y = paddle_a.ycor
-    y -= 20
+    y += 20
     paddle_a.sety(y)
 
 def paddlebup():
     y = paddle_b.ycor
-    y += 20
+    y -= 20
     paddle_b.sety(y)
 
 def paddlebdown():
     y = paddle_b.ycor
-    y -= 20
+    y += 20
     paddle_b.sety(y)
 
+#QUESTION this is where I add in key functions, but they do not work
 sc.listen()
 sc.onkeypress(paddleaup, "a")
 sc.onkeypress(paddleadown, "z")
@@ -109,4 +112,4 @@ while True:
             pong_ball.setx(-360)
             pong_ball.dx*=-1
 
-#sc.mainloop()
+#sc.mainloop() unnecessary
