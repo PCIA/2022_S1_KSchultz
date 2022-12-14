@@ -46,31 +46,31 @@ sketch.write("player_one : 0    player_two : 0",
 #started creating the paddles here
 #Paddle positioning
 def paddleaup():
-    y = paddle_a.ycor
+    y = paddle_a.ycor()
     y -= 20
     paddle_a.sety(y)
 
 def paddleadown():
-    y = paddle_a.ycor
+    y = paddle_a.ycor()
     y += 20
     paddle_a.sety(y)
 
 def paddlebup():
-    y = paddle_b.ycor
+    y = paddle_b.ycor()
     y -= 20
     paddle_b.sety(y)
 
 def paddlebdown():
-    y = paddle_b.ycor
+    y = paddle_b.ycor()
     y += 20
     paddle_b.sety(y)
 
 #QUESTION this is where I add in key functions, but they do not work
 sc.listen()
-sc.onkeypress(paddleaup, "a")
-sc.onkeypress(paddleadown, "z")
-sc.onkeypress(paddlebup, "Up")
-sc.onkeypress(paddlebdown, "Down")
+sc.onkeypress(paddleadown, "a")
+sc.onkeypress(paddleaup, "z")
+sc.onkeypress(paddlebdown, "Up")
+sc.onkeypress(paddlebup, "Down")
 
 while True:
     sc.update()
