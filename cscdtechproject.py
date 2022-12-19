@@ -10,6 +10,7 @@ paddle_a.speed(0)
 paddle_a.shape("square")
 paddle_a.color("white")
 paddle_a.shapesize(stretch_wid=6, stretch_len=2)
+# stretch causes small bounce zone, find way to draw rectangle
 paddle_a.penup()
 paddle_a.goto(-400, 0)
 
@@ -30,6 +31,7 @@ pong_ball.dy = -5
 pong_ball.penup()
 pong_ball.goto(0, 0)
 #pong_ball.shapesize(stretch_wid=3, stretch_len=3), unnecessary
+#ball possibly too fast, change later
 
 player_one = 0
 player_two = 0
@@ -73,18 +75,21 @@ sc.onkeypress(paddlebdown, "Up")
 sc.onkeypress(paddlebup, "Down")
 
 while True:
+    #set variable running = True above loop, change loop to while running == True
     sc.update()
 
     pong_ball.setx(pong_ball.xcor()+pong_ball.dx)
     pong_ball.sety(pong_ball.ycor()+pong_ball.dy)
+    #change all dx and dy to movevectorx and movevectory
 
     if pong_ball.ycor() > 280:
             pong_ball.sety(280)
             pong_ball.dy *= -1
 
     if pong_ball.ycor() < -280:
-            pong_ball.setx(280)
-            pong_ball.dx *= -1
+            pong_ball.sety(-280)
+            pong_ball.dy *= -1
+            #sety (280), dy *= -1, done
 
     if pong_ball.xcor() > 500:
             pong_ball.goto(0, 0)
